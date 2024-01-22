@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+}
+</style>
+</head>
+<body onload="myFunctions()" >
+<div class="center">
+  <h1 id="demo" style="font-size: 300%;"></h1>
+</div>
+<script>
+function welcome() {
+  var d = new Date();
+  var n = d.getHours();
+  var text;
+  if (n >= 6 && n < 12) {
+    text = "Good Morning";
+  } else if (n >= 12 && n < 18) {
+    text = "Good Day";
+  } else if (n >= 18 && n < 24) {
+    text = "Good Evening";
+  } else {
+    text = "Good Night";
+  }
+  var i = 0;
+  var speed = 50;
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("demo").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+  typeWriter();
+}
+
+function openIndex() {
+  window.open("index.html");
+}
+
+function myFunctions() {
+    welcome();
+    setTimeout(openIndex, 2500);
+}
+</script>
+</body>
+</html>
